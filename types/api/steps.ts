@@ -1,14 +1,16 @@
+export type Answer = {
+  name: string,
+  title: string,
+  nextQuestionUrl?: string,
+}
+
 export type Step = {
   id: string,
-  name: string,
-  order: number,
-  condition?: StepCondition,
+  url: string,
+  description: string,
+  additionalDescription?: string,
+  type: string,
+  answers: Answer[],
 };
-
-export type StepCondition = {
-  variations?: {
-    step: string, // Consider to use "flow" instead of "step"
-  }
-}
 
 export type Steps = Step[];

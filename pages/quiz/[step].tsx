@@ -1,30 +1,21 @@
 import {Step as StepType} from "@/types/api/steps";
-import {GetStaticPaths, GetStaticProps} from "next";
+import {GetStaticPaths, GetStaticPathsResult, GetStaticProps} from "next";
+import {StepsResponseData} from "@/types/api";
+import AnswersList from "@/components/answersList/answersList";
 
-const steps: StepType[] = [
-  {
-    id: 'gender-id',
-    name: 'gender',
-    order: 0,
-    condition: {}
-  },
-  {
-    id: 'flow_choice-id',
-    name: 'flow_choice',
-    order: 1,
-  }
-];
-
-export const getStaticPaths = (async () => {
+export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   // Call an API endpoint to get posts
-  // const res: Response = await fetch('http://localhost:3000/api/steps');
-  // const steps: ResponseData = await res.json();
+  const res: Response = await fetch('http://127.0.0.1:3000/api/steps');
+
+
+  const responseData: StepsResponseData = await res.json();
+  const steps = responseData.data;
 
   // Get the paths we want to pre-render based on posts
-  const paths = steps.map((step: StepType) => {
+  const paths = steps?.map((step: StepType) => {
     return {
       params: {
-        step: step.name,
+        step: step.url,
       },
     }
   })
@@ -32,26 +23,40 @@ export const getStaticPaths = (async () => {
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
   return {
-    paths: paths,
+    paths: paths || [],
     fallback: false,
   }
 }) satisfies GetStaticPaths;
 
-
 export const getStaticProps = (async ({params}) => {
-  const step = steps.find((step: StepType) => step.name === params?.step);
+  const step = params?.step;
+  const res: Response = await fetch(`http://127.0.0.1:3000/api/steps/${step}`);
+  const responseData: StepsResponseData = await res.json();
 
-  return {props: {step}}
-}) satisfies GetStaticProps<{ step: StepType | undefined }>
+  const stepItem = responseData.data;
+
+  return {
+    props:
+      {
+        step: stepItem,
+      }
+  };
+}) satisfies GetStaticProps;
 
 type PageProps = {
-  step: StepType
+  step: StepType;
 }
 
 export default function Step({step}: PageProps) {
+  const {url, answers, description, additionalDescription} = step;
+
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-24`}>
-      Step name: -{step.name}-
-    </main>
+    <>
+      <p>Step name: {url}</p>
+      <p>Step description: {description}</p>
+      {!!additionalDescription && (<p>Step description: {additionalDescription}</p>)}
+
+      <AnswersList answers={answers}/>
+    </>
   );
 }

@@ -1,6 +1,11 @@
-import {Steps} from "@/types/api/steps";
+import {Step, Steps} from "@/types/api/steps";
 
-export type ResponseData = {
+export type StepsResponseData = {
   data?: Steps;
+  error?: string,
+};
+
+export type StepResponseData = {
+  data?: Step;
   error?: string,
 };

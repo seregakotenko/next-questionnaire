@@ -1,0 +1,24 @@
+import {MouseEventHandler} from "react";
+import {useRouter} from 'next/router'
+import {Answer} from "@/types/api/steps";
+
+type AnswersListItemProps = {
+  answer: Answer;
+}
+
+export default function AnswersListItem({answer}: AnswersListItemProps) {
+  const router = useRouter();
+  const {title, nextQuestionUrl} = answer;
+  const handleAnswerButtonClick: MouseEventHandler<HTMLButtonElement> = (event): void => {
+    if (!nextQuestionUrl) {
+      console.log('No next question url');
+      return;
+    }
+
+    router.push(`/quiz/${nextQuestionUrl}`);
+  }
+
+  return <li>
+    <button onClick={handleAnswerButtonClick}>{title}</button>
+  </li>;
+}
