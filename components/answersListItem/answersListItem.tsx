@@ -19,6 +19,6 @@ export default function AnswersListItem({answer}: AnswersListItemProps) {
   }
 
   return <li>
-    <button onClick={handleAnswerButtonClick}>{title}</button>
+    <button className="button button-gradient w-full my-2" onClick={handleAnswerButtonClick}>{title}</button>
   </li>;
 }

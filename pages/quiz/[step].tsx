@@ -48,15 +48,14 @@ type PageProps = {
 }
 
 export default function Step({step}: PageProps) {
-  const {url, answers, description, additionalDescription} = step;
+  const {answers = [], description = '', additionalDescription = ''} = step;
 
   return (
-    <>
-      <p>Step name: {url}</p>
-      <p>Step description: {description}</p>
-      {!!additionalDescription && (<p>Step description: {additionalDescription}</p>)}
+    <section className="py-4 w-full">
+      <h2 className="mb-4 text-2xl font-bold">{description}</h2>
+      {!!additionalDescription && (<p className="my-4 text-lg font-semibold">{additionalDescription}</p>)}
 
       <AnswersList answers={answers}/>
-    </>
+    </section>
   );
 }

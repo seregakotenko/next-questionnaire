@@ -146,7 +146,7 @@ export const quizConfig: Steps = [
     id: 'partner-priority-id',
     url: 'partner-priority',
     description: 'Do you agree with the statement below?',
-    additionalDescription: 'My partner and I make sex a priority in our relationship',
+    additionalDescription: '"My partner and I make sex a priority in our relationship"',
     type: 'text',
     answers: [
       {

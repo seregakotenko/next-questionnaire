@@ -8,7 +8,7 @@ export default function Layout({children}: LayoutProps) {
   return (
     <>
       <Header/>
-      <main className='flex min-h-screen flex-col items-center justify-between p-24'>{children}</main>
+      <main className="mx-auto flex justify-center w-full sm:w-96">{children}</main>
     </>
   )
 };
