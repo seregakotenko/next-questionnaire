@@ -51,7 +51,7 @@ export default function Step({step}: PageProps) {
   const {answers = [], description = '', additionalDescription = ''} = step;
 
   return (
-    <section className="py-4 w-full">
+    <section className="py-4 w-full max-w-96">
       <h2 className="mb-4 text-2xl font-bold">{description}</h2>
       {!!additionalDescription && (<p className="my-4 text-lg font-semibold">{additionalDescription}</p>)}
 
