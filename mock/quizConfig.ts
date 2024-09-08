@@ -1,4 +1,4 @@
-import {ConfigType, Screen} from "@/types/api/config";
+import { ConfigType, Screen } from '@/types/api/config';
 
 export const screens: Screen[] = [
   {
@@ -17,7 +17,7 @@ export const screens: Screen[] = [
         name: 'female',
         title: 'Female',
         nextQuestionUrl: 'relationship-status',
-      }
+      },
     ],
   },
   {
@@ -36,7 +36,7 @@ export const screens: Screen[] = [
         name: 'in-relationship',
         title: 'In a relationship',
         nextQuestionUrl: 'parent',
-      }
+      },
     ],
   },
   {
@@ -55,7 +55,7 @@ export const screens: Screen[] = [
         name: 'no',
         title: 'No',
         nextQuestionUrl: 'in-a-relationship-problem',
-      }
+      },
     ],
   },
   {
@@ -74,7 +74,7 @@ export const screens: Screen[] = [
         name: 'no',
         title: 'No',
         nextQuestionUrl: 'single-problem',
-      }
+      },
     ],
   },
   {
@@ -82,7 +82,8 @@ export const screens: Screen[] = [
     url: 'single-problem',
     index: 5,
     type: 'text',
-    description: 'Single {gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
+    description:
+      'Single {gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
     answers: [
       {
         name: 'unhappy',
@@ -101,9 +102,9 @@ export const screens: Screen[] = [
       },
       {
         name: 'had-no-relationship',
-        title: 'I\'ve never been in a relationship',
+        title: "I've never been in a relationship",
         nextQuestionUrl: 'partner-introvert-or-extravert',
-      }
+      },
     ],
   },
   {
@@ -127,14 +128,14 @@ export const screens: Screen[] = [
         name: 'both',
         title: 'A bit of both',
         nextQuestionUrl: 'partner-gender',
-      }
+      },
     ],
   },
   {
     id: 'partner-gender-id',
     url: 'partner-gender',
     index: 7,
-    description: 'Select your partner\'s gender:',
+    description: "Select your partner's gender:",
     type: 'text',
     answers: [
       {
@@ -146,7 +147,7 @@ export const screens: Screen[] = [
         name: 'female',
         title: 'Female',
         nextQuestionUrl: 'partner-priority',
-      }
+      },
     ],
   },
   {
@@ -181,7 +182,7 @@ export const screens: Screen[] = [
         name: 'strongly-agree',
         title: 'Strongly agree',
         nextQuestionUrl: 'think-about-relationship-goals',
-      }
+      },
     ],
   },
   {
@@ -198,12 +199,12 @@ export const screens: Screen[] = [
       },
       {
         name: 'cautious',
-        title: 'Cautious. I\'ve struggled before, but I\'m hopeful.',
+        title: "Cautious. I've struggled before, but I'm hopeful.",
         nextQuestionUrl: 'relationship-about-us',
       },
       {
         name: 'anxious',
-        title: 'I\'m feeling a little anxious, honestly.',
+        title: "I'm feeling a little anxious, honestly.",
         nextQuestionUrl: 'relationship-about-us',
       },
     ],
@@ -212,22 +213,23 @@ export const screens: Screen[] = [
     id: 'in-a-relationship-problem-id',
     url: 'in-a-relationship-problem',
     index: 10,
-    description: '{Gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?',
+    description:
+      '{Gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?',
     type: 'text',
     answers: [
       {
         name: 'unhappy',
-        title: 'I\'m very unhappy with how things are going in my relationship',
+        title: "I'm very unhappy with how things are going in my relationship",
         nextQuestionUrl: 'traits-tend-to-overthink',
       },
       {
         name: 'partially-unhappy',
-        title: 'I\'m unhappy with parts of my relationship, but some things are working well',
+        title: "I'm unhappy with parts of my relationship, but some things are working well",
         nextQuestionUrl: 'traits-tend-to-overthink',
       },
       {
         name: 'happy',
-        title: 'I\'m generally happy in my relationship',
+        title: "I'm generally happy in my relationship",
         nextQuestionUrl: 'traits-tend-to-overthink',
       },
     ],
@@ -390,5 +392,5 @@ export const quizConfig: ConfigType = {
     name: 'default_flow',
     initialScreen: 'gender',
     screens,
-  }
+  },
 };

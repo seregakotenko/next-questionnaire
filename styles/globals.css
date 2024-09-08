@@ -4,11 +4,11 @@
 
 @layer base {
   body {
-    @apply bg-white-smoke px-2
+    @apply bg-white-smoke px-2;
   }
 
   .button {
-    @apply rounded-xl border border-light-gray px-3 py-3 shadow-full transition-colors text-black hover:text-white
+    @apply rounded-xl border border-light-gray px-3 py-3 shadow-full transition-colors text-black hover:text-white;
   }
 }
 
@@ -16,27 +16,27 @@
   /* User for applying a transition to the bg gradient */
   @property --gradient-color1 {
     syntax: '<color>';
-    initial-value: theme("colors.romance");
+    initial-value: theme('colors.romance');
     inherits: false;
   }
 
   @property --gradient-color2 {
     syntax: '<color>';
-    initial-value: theme("colors.romance");
+    initial-value: theme('colors.romance');
     inherits: false;
   }
 
   .button-gradient {
     background: linear-gradient(var(--gradient-color1), var(--gradient-color2));
-    transition: --gradient-color1 0.15s ease,
-    --gradient-color2 0.15s ease;
+    transition:
+      --gradient-color1 0.15s ease,
+      --gradient-color2 0.15s ease;
   }
 
   .button-gradient:hover {
-    --gradient-color1: theme("colors.rainbow-indigo");
-    --gradient-color2: theme("colors.violet");
+    --gradient-color1: theme('colors.rainbow-indigo');
+    --gradient-color2: theme('colors.violet');
   }
 
   /* END. User for applying a transition to the bg gradient */
 }
-

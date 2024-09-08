@@ -1,11 +1,11 @@
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 type BackButtonType = {
   className?: string;
   children?: React.ReactNode;
-}
+};
 
-export default function BackButton({className = '', children}: BackButtonType) {
+export default function BackButton({ className = '', children }: BackButtonType) {
   const router = useRouter();
 
   return (
@@ -13,4 +13,4 @@ export default function BackButton({className = '', children}: BackButtonType) {
       {children}
     </button>
   );
-};
+}

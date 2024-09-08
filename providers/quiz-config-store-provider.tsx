@@ -1,34 +1,30 @@
-'use client'
+'use client';
 
-import {createContext, type ReactNode, useContext, useRef} from 'react';
-import {useStore} from 'zustand';
-import {createConfigStore, initConfigStore,} from '@/stores/quiz-config-store';
-import {ConfigStore} from "@/types/store";
+import { createContext, type ReactNode, useContext, useRef } from 'react';
+import { useStore } from 'zustand';
+import { createConfigStore, initConfigStore } from '@/stores/quiz-config-store';
+import { ConfigStore } from '@/types/store';
 
-export type ConfigStoreApi = ReturnType<typeof createConfigStore>
+export type ConfigStoreApi = ReturnType<typeof createConfigStore>;
 
-export const ConfigStoreContext = createContext<ConfigStoreApi | undefined>(
-  undefined,
-)
+export const ConfigStoreContext = createContext<ConfigStoreApi | undefined>(undefined);
 
 export interface ConfigStoreProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export const ConfigStoreProvider = ({children,}: ConfigStoreProviderProps) => {
-  const storeRef = useRef<ConfigStoreApi>()
+export const ConfigStoreProvider = ({ children }: ConfigStoreProviderProps) => {
+  const storeRef = useRef<ConfigStoreApi>();
   if (!storeRef.current) {
-    storeRef.current = createConfigStore(initConfigStore())
+    storeRef.current = createConfigStore(initConfigStore());
   }
 
   return (
-    <ConfigStoreContext.Provider value={storeRef.current}>
-      {children}
-    </ConfigStoreContext.Provider>
-  )
-}
+    <ConfigStoreContext.Provider value={storeRef.current}>{children}</ConfigStoreContext.Provider>
+  );
+};
 
-export const useConfigStore = <T, >(selector: (store: ConfigStore) => T,): T => {
+export const useConfigStore = <T,>(selector: (store: ConfigStore) => T): T => {
   const configStoreContext = useContext(ConfigStoreContext);
 
   if (!configStoreContext) {
@@ -36,4 +32,4 @@ export const useConfigStore = <T, >(selector: (store: ConfigStore) => T,): T => 
   }
 
   return useStore(configStoreContext, selector);
-}
+};

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -11,7 +11,6 @@ export default function Home() {
         height={24}
         priority
       />
-
     </main>
   );
 }

@@ -14,7 +14,7 @@ const nextConfig = {
         destination: '/quiz/gender',
         permanent: true,
       },
-    ]
+    ];
   },
 };
 
