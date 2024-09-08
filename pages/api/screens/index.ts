@@ -9,7 +9,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Screen
   if (req.method !== 'GET') return res.status(404).send({ error: 'Something went wrong' });
 
   // Used the mock data
-  const { screens = [] } = quizConfig?.flow;
+  const { screens = [] } = quizConfig?.flow || [];
 
   if (!screens.length) return res.status(500).json({ error: 'Failed to load data' });
 

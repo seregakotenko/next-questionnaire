@@ -13,7 +13,7 @@ export default function AnswersListItem({ answer, questionId, onAnswer }: Answer
   const router = useRouter();
   const { title, nextQuestionUrl } = answer;
 
-  const handleAnswerButtonClick: MouseEventHandler<HTMLButtonElement> = (event): void => {
+  const handleAnswerButtonClick: MouseEventHandler<HTMLButtonElement> = (): void => {
     onAnswer(questionId, title);
 
     if (!nextQuestionUrl) {

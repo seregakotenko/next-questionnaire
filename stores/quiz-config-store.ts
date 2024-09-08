@@ -5,7 +5,7 @@ import { AnswerType, ConfigState, ConfigStore } from '@/types/store';
 
 export const initConfigStore = (): ConfigState => {
   return {
-    config: quizConfig, // todo try to fetch it from an API
+    config: quizConfig, // todo try to fetch it from an API ${process.env.API_URL}/quiz-config
     answers: [],
   };
 };

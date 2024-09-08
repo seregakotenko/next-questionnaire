@@ -10,7 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Screen
   const { screen: screenName } = req.query;
 
   if (req.method !== 'GET') return res.status(404).send({ error: 'Something went wrong' });
-  const { screens = [] } = quizConfig?.flow;
+  const { screens = [] } = quizConfig?.flow || [];
 
   if (!screens.length) return res.status(500).json({ error: 'Failed to load data' });
 
