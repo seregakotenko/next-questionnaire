@@ -21,7 +21,6 @@ export type Flow = {
   screens: Screen[],
 };
 
-
 export type ConfigType = {
   version: string;
   name: string;

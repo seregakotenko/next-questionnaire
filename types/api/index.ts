@@ -1,4 +1,4 @@
-import {Screen} from "@/types/api/config";
+import {ConfigType, Screen} from "@/types/api/config";
 
 export type ScreenResponseData = {
   data?: Screen;
@@ -7,5 +7,10 @@ export type ScreenResponseData = {
 
 export type ScreensResponseData = {
   data?: Screen[];
+  error?: string,
+};
+
+export type QuizConfigResponseData = {
+  data?: ConfigType;
   error?: string,
 };

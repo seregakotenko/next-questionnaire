@@ -3,6 +3,9 @@ import {ScreenResponseData} from "@/types/api";
 import {quizConfig} from "@/mock/quizConfig";
 import {Screen} from "@/types/api/config";
 
+/**
+ * Get a screen item
+ */
 export default function handler(req: NextApiRequest, res: NextApiResponse<ScreenResponseData>) {
   const {screen: screenName} = req.query;
 
