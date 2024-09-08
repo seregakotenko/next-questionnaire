@@ -12,8 +12,6 @@ This is a Next.js project bootstrapped with create-next-app.
 
 **Recommended**
 
-- [NVM](https://github.com/nvm-sh/nvm) / [NVM for Windows](https://github.com/coreybutler/nvm-windows)
-  For easy switching the node version.
 - [Yarn](https://yarnpkg.com/getting-started/install) A faster NPM alternative
 
 ## Installation
@@ -21,7 +19,7 @@ This is a Next.js project bootstrapped with create-next-app.
 To install the project dependencies run
 
 ```sh
-yarn
+yarn install
 # or
 npm install
 ```
@@ -31,26 +29,26 @@ npm install
 To start development first, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
+# or
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 Code quality checks are included in the project (Prettier, Eslint).
 Staged code will be checked on commit via git commit hooks but can be started at any time with:
 
 ```sh
 yarn lint
+# or
+npm run lint
 ```
 
-Smaller fixes can be applied automatically with
-
 ```sh
-yarn lint:fix
+yarn format
+# or
+npm run format
 ```
 
 ## Building
@@ -59,6 +57,8 @@ To build the project run
 
 ```sh
 yarn build
+# or
+npm run build
 ```
 
 The built project will be available in the folder `.next`
