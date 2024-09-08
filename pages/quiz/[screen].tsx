@@ -2,9 +2,9 @@ import {Screen as ScreenType} from "@/types/api/config";
 import {GetStaticPaths, GetStaticPathsResult, GetStaticProps} from "next";
 import {ScreenResponseData, ScreensResponseData} from "@/types/api";
 import AnswersList from "@/components/answersList/answersList";
-import {useConfigStore} from "@/providers/counter-store-provider";
+import {useConfigStore} from "@/providers/quiz-config-store-provider";
 import {v4 as uuidv4} from "uuid";
-import {createConfigStore} from "@/stores/counter-store";
+import {createConfigStore} from "@/stores/quiz-config-store";
 
 export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   // Call an API endpoint to get posts
@@ -12,7 +12,7 @@ export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   const responseData: ScreensResponseData = await res.json();
   const screens = responseData.data;
 
-  // Get the paths we want to pre-render based on posts
+  // Get the paths we want to pre-render based on screens
   const paths = screens?.map((screen: ScreenType) => {
     return {
       params: {
