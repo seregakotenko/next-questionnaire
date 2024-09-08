@@ -1,14 +1,20 @@
 import { Screen as ScreenType } from '@/types/api/config';
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next';
-import { ScreenResponseData, ScreensResponseData } from '@/types/api';
+// import { ScreenResponseData, ScreensResponseData } from '@/types/api';
 import ScreenDetails from '@/components/screenDetails/screenDetails';
 import ScreenLayout from '@/components/screenLayout';
+import { quizConfig } from '@/mock/quizConfig';
 
 export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   // Call an API endpoint to get posts
-  const res: Response = await fetch(`${process.env.API_URL}/screens`);
-  const responseData: ScreensResponseData = await res.json();
-  const screens = responseData.data;
+  // const res: Response = await fetch(`${process.env.API_URL}/screens`);
+  // const responseData: ScreensResponseData = await res.json();
+  // const screens = responseData.data;
+
+  // There is an issue with calling a local API behind, and the issue was not fixed
+  // Collecting page data  ...TypeError: fetch failed
+  // This is why an import the mock data has been used
+  const screens = quizConfig.flow.screens;
 
   // Get the paths we want to pre-render based on screens
   const paths = screens?.map((screen: ScreenType) => {
@@ -29,10 +35,15 @@ export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
 
 export const getStaticProps = (async ({ params }) => {
   const screenParam = params?.screen;
-  const res: Response = await fetch(`${process.env.API_URL}/screens/${screenParam}`);
-  const responseData: ScreenResponseData = await res.json();
+  // Call an API endpoint to get posts
+  // const res: Response = await fetch(`${process.env.API_URL}/screens/${screenParam}`);
+  // const responseData: ScreenResponseData = await res.json();
+  // const screenItem = responseData.data;
 
-  const screenItem = responseData.data;
+  // There is an issue with calling a local API behind, and the issue was not fixed
+  // Collecting page data  ...TypeError: fetch failed
+  // This is why an import the mock data has been used
+  const screenItem = quizConfig.flow.screens.find((item) => item.url === screenParam);
 
   return {
     props: {
