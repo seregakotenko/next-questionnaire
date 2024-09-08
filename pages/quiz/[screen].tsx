@@ -6,8 +6,6 @@ import {useConfigStore} from "@/providers/counter-store-provider";
 import {v4 as uuidv4} from "uuid";
 import {createConfigStore} from "@/stores/counter-store";
 
-export const dynamic = 'force-dynamic';
-
 export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   // Call an API endpoint to get posts
   const res: Response = await fetch(`${process.env.API_URL}/screens`);
