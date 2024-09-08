@@ -5,6 +5,7 @@ export const screens: Screen[] = [
     id: 'gender-id',
     url: 'gender',
     index: 1,
+    showBackButton: false,
     description: 'Select your gender:',
     type: 'text',
     answers: [
@@ -24,6 +25,7 @@ export const screens: Screen[] = [
     id: 'relationship-status-id',
     url: 'relationship-status',
     index: 2,
+    showBackButton: true,
     type: 'text',
     description: 'So we can get to know you better, tell us about your relationship status.',
     answers: [
@@ -43,6 +45,7 @@ export const screens: Screen[] = [
     id: 'single-parent-id',
     url: 'single-parent',
     index: 3,
+    showBackButton: true,
     type: 'text',
     description: 'Are you single parent?',
     answers: [
@@ -62,6 +65,7 @@ export const screens: Screen[] = [
     id: 'parent-id',
     url: 'parent',
     index: 4,
+    showBackButton: true,
     type: 'text',
     description: 'Are you parent?',
     answers: [
@@ -81,6 +85,7 @@ export const screens: Screen[] = [
     id: 'single-problem-id',
     url: 'single-problem',
     index: 5,
+    showBackButton: true,
     type: 'text',
     description:
       'Single {gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
@@ -111,6 +116,7 @@ export const screens: Screen[] = [
     id: 'partner-introvert-or-extravert-id',
     url: 'partner-introvert-or-extravert',
     index: 6,
+    showBackButton: true,
     type: 'text',
     description: 'Is your partner an introvert or extravert?',
     answers: [
@@ -135,6 +141,7 @@ export const screens: Screen[] = [
     id: 'partner-gender-id',
     url: 'partner-gender',
     index: 7,
+    showBackButton: true,
     description: "Select your partner's gender:",
     type: 'text',
     answers: [
@@ -154,6 +161,7 @@ export const screens: Screen[] = [
     id: 'partner-priority-id',
     url: 'partner-priority',
     index: 8,
+    showBackButton: true,
     description: 'Do you agree with the statement below?',
     additionalDescription: '"My partner and I make sex a priority in our relationship"',
     type: 'text',
@@ -189,6 +197,7 @@ export const screens: Screen[] = [
     id: 'think-about-relationship-goals-id',
     url: 'think-about-relationship-goals',
     index: 9,
+    showBackButton: true,
     description: 'When you think about your relationship goals, you feel...?',
     type: 'text',
     answers: [
@@ -213,6 +222,7 @@ export const screens: Screen[] = [
     id: 'in-a-relationship-problem-id',
     url: 'in-a-relationship-problem',
     index: 10,
+    showBackButton: true,
     description:
       '{Gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?',
     type: 'text',
@@ -238,6 +248,7 @@ export const screens: Screen[] = [
     id: 'traits-tend-to-overthink-id',
     url: 'traits-tend-to-overthink',
     index: 11,
+    showBackButton: true,
     description: 'Do you tend to overthink?',
     type: 'text',
     answers: [
@@ -258,6 +269,7 @@ export const screens: Screen[] = [
     id: 'traits-most-important-id',
     url: 'traits-most-important',
     index: 12,
+    showBackButton: true,
     description: 'What is most important to you?',
     type: 'text',
     answers: [
@@ -287,6 +299,7 @@ export const screens: Screen[] = [
     id: 'traits-emotional-control-id',
     url: 'traits-emotional-control',
     index: 13,
+    showBackButton: true,
     description: 'Is emotional control tricky for you?',
     type: 'text',
     answers: [
@@ -316,6 +329,7 @@ export const screens: Screen[] = [
     id: 'relationship-about-us-id',
     url: 'relationship-about-us',
     index: 14,
+    showBackButton: true,
     description: 'Where did you hear about us?',
     type: 'text',
     answers: [
@@ -390,7 +404,7 @@ export const quizConfig: ConfigType = {
   flow: {
     id: 'flow-id',
     name: 'default_flow',
-    initialScreen: 'gender',
+    initialScreen: 'gender-id',
     screens,
   },
 };

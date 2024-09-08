@@ -1,7 +1,8 @@
 import { Screen as ScreenType } from '@/types/api/config';
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next';
 import { ScreenResponseData, ScreensResponseData } from '@/types/api';
-import AnswersList from '@/components/answersList/answersList';
+import ScreenDetails from '@/components/screenDetails/screenDetails';
+import ScreenLayout from '@/components/screenLayout';
 
 export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   // Call an API endpoint to get posts
@@ -45,16 +46,11 @@ type PageProps = {
 };
 
 export default function Screen({ screen }: PageProps) {
-  const { answers = [], description = '', additionalDescription = '', id } = screen;
+  const { id, showBackButton } = screen;
 
   return (
-    <section className="py-4 w-full max-w-96">
-      <h2 className="mb-4 text-2xl font-bold">{description}</h2>
-      {!!additionalDescription && (
-        <p className="my-4 text-lg font-semibold">{additionalDescription}</p>
-      )}
-
-      <AnswersList answers={answers} questionId={id} />
-    </section>
+    <ScreenLayout>
+      <ScreenDetails id={id} />
+    </ScreenLayout>
   );
 }

@@ -7,6 +7,7 @@ export type Answer = {
 export type Screen = {
   id: string;
   index: number;
+  showBackButton: boolean;
   url: string;
   description: string;
   additionalDescription?: string;
