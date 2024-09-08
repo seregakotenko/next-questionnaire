@@ -1,11 +1,11 @@
-import {Step, Steps} from "@/types/api/steps";
+import {Screen} from "@/types/api/config";
 
-export type StepsResponseData = {
-  data?: Steps;
+export type ScreenResponseData = {
+  data?: Screen;
   error?: string,
 };
 
-export type StepResponseData = {
-  data?: Step;
+export type ScreensResponseData = {
+  data?: Screen[];
   error?: string,
 };

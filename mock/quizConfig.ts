@@ -1,9 +1,10 @@
-import {Steps} from "@/types/api/steps";
+import {ConfigType, Screen} from "@/types/api/config";
 
-export const quizConfig: Steps = [
+export const screens: Screen[] = [
   {
     id: 'gender-id',
     url: 'gender',
+    index: 1,
     description: 'Select your gender:',
     type: 'text',
     answers: [
@@ -22,6 +23,7 @@ export const quizConfig: Steps = [
   {
     id: 'relationship-status-id',
     url: 'relationship-status',
+    index: 2,
     type: 'text',
     description: 'So we can get to know you better, tell us about your relationship status.',
     answers: [
@@ -40,6 +42,7 @@ export const quizConfig: Steps = [
   {
     id: 'single-parent-id',
     url: 'single-parent',
+    index: 3,
     type: 'text',
     description: 'Are you single parent?',
     answers: [
@@ -58,6 +61,7 @@ export const quizConfig: Steps = [
   {
     id: 'parent-id',
     url: 'parent',
+    index: 4,
     type: 'text',
     description: 'Are you parent?',
     answers: [
@@ -76,8 +80,9 @@ export const quizConfig: Steps = [
   {
     id: 'single-problem-id',
     url: 'single-problem',
+    index: 5,
     type: 'text',
-    description: 'Single {gender} {who have children (if have children}) need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
+    description: 'Single {gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
     answers: [
       {
         name: 'unhappy',
@@ -104,6 +109,7 @@ export const quizConfig: Steps = [
   {
     id: 'partner-introvert-or-extravert-id',
     url: 'partner-introvert-or-extravert',
+    index: 6,
     type: 'text',
     description: 'Is your partner an introvert or extravert?',
     answers: [
@@ -127,6 +133,7 @@ export const quizConfig: Steps = [
   {
     id: 'partner-gender-id',
     url: 'partner-gender',
+    index: 7,
     description: 'Select your partner\'s gender:',
     type: 'text',
     answers: [
@@ -145,6 +152,7 @@ export const quizConfig: Steps = [
   {
     id: 'partner-priority-id',
     url: 'partner-priority',
+    index: 8,
     description: 'Do you agree with the statement below?',
     additionalDescription: '"My partner and I make sex a priority in our relationship"',
     type: 'text',
@@ -179,6 +187,7 @@ export const quizConfig: Steps = [
   {
     id: 'think-about-relationship-goals-id',
     url: 'think-about-relationship-goals',
+    index: 9,
     description: 'When you think about your relationship goals, you feel...?',
     type: 'text',
     answers: [
@@ -202,6 +211,7 @@ export const quizConfig: Steps = [
   {
     id: 'in-a-relationship-problem-id',
     url: 'in-a-relationship-problem',
+    index: 10,
     description: '{Gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?',
     type: 'text',
     answers: [
@@ -225,6 +235,7 @@ export const quizConfig: Steps = [
   {
     id: 'traits-tend-to-overthink-id',
     url: 'traits-tend-to-overthink',
+    index: 11,
     description: 'Do you tend to overthink?',
     type: 'text',
     answers: [
@@ -244,6 +255,7 @@ export const quizConfig: Steps = [
   {
     id: 'traits-most-important-id',
     url: 'traits-most-important',
+    index: 12,
     description: 'What is most important to you?',
     type: 'text',
     answers: [
@@ -272,6 +284,7 @@ export const quizConfig: Steps = [
   {
     id: 'traits-emotional-control-id',
     url: 'traits-emotional-control',
+    index: 13,
     description: 'Is emotional control tricky for you?',
     type: 'text',
     answers: [
@@ -300,6 +313,7 @@ export const quizConfig: Steps = [
   {
     id: 'relationship-about-us-id',
     url: 'relationship-about-us',
+    index: 14,
     description: 'Where did you hear about us?',
     type: 'text',
     answers: [
@@ -366,3 +380,15 @@ export const quizConfig: Steps = [
     ],
   },
 ];
+
+export const quizConfig: ConfigType = {
+  version: '1',
+  name: 'quiz',
+  link: '/quiz',
+  flow: {
+    id: 'flow-id',
+    name: 'default_flow',
+    initialScreen: 'gender',
+    screens,
+  }
+};

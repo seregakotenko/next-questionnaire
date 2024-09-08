@@ -1,6 +1,6 @@
 import {MouseEventHandler} from "react";
 import {useRouter} from 'next/router'
-import {Answer} from "@/types/api/steps";
+import {Answer} from "@/types/api/config";
 
 type AnswersListItemProps = {
   answer: Answer;

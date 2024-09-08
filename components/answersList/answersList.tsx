@@ -1,5 +1,5 @@
 import AnswersListItem from "@/components/answersListItem/answersListItem";
-import {Answer} from "@/types/api/steps";
+import {Answer} from "@/types/api/config";
 import {v4 as uuidv4} from 'uuid';
 
 type AnswersListProps = {
