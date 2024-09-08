@@ -49,7 +49,7 @@ export default function Screen({ screen }: PageProps) {
   const { id, showBackButton } = screen;
 
   return (
-    <ScreenLayout>
+    <ScreenLayout showBackButton={showBackButton}>
       <ScreenDetails id={id} />
     </ScreenLayout>
   );
