@@ -1,12 +1,12 @@
 import { createStore } from 'zustand/vanilla';
-import { ConfigType } from '@/types/api/config';
+import { Screen } from '@/types/api/config';
 import { quizConfig } from '@/mock/quizConfig';
 import { AnswerType, ConfigState, ConfigStore } from '@/types/store';
 
 export const initConfigStore = (): ConfigState => {
   return {
     config: quizConfig, // todo try to fetch it from an API ${process.env.API_URL}/quiz-config
-    answers: [],
+    answers: prepareAnswerState(quizConfig?.flow?.screens),
   };
 };
 
@@ -18,26 +18,24 @@ export const defaultInitState: ConfigState = {
 export const createConfigStore = (initState: ConfigState = defaultInitState) => {
   return createStore<ConfigStore>()((set) => ({
     ...initState,
-    initializeState: (config: ConfigType) => set(() => ({ config })),
     setAnswer: (questionId: string, answer: string) =>
       set((state) => ({ answers: updateAnswers(state.answers, questionId, answer) })),
   }));
 };
 
-function updateAnswers(answers: AnswerType[], questionId: string, answer: string) {
-  let indexExistingAnswer = null;
-
-  answers.find((item, index) => {
+function updateAnswers(answers: AnswerType[], questionId: string, value: string) {
+  return answers.map((item) => {
     if (item.questionId === questionId) {
-      indexExistingAnswer = index;
+      return { ...item, value };
     }
-    return item.questionId === questionId;
+    return { ...item };
   });
+}
 
-  if (indexExistingAnswer) {
-    answers[indexExistingAnswer] = { questionId, answer };
-    return [...answers];
-  }
+function prepareAnswerState(screens: Screen[]): AnswerType[] | [] {
+  if (!screens) return [];
 
-  return [...answers, { questionId, answer }];
+  return screens.map(({ id }: { id: string }) => {
+    return { questionId: id, value: null };
+  });
 }

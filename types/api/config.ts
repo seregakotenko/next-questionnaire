@@ -1,5 +1,5 @@
 export type Answer = {
-  name: string;
+  value: string;
   title: string;
   nextQuestionUrl?: string;
 };

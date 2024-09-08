@@ -8,35 +8,10 @@
   }
 
   .button {
-    @apply rounded-xl border border-light-gray px-3 py-3 shadow-full transition-colors text-black hover:text-white;
-  }
-}
-
-@layer utilities {
-  /* User for applying a transition to the bg gradient */
-  @property --gradient-color1 {
-    syntax: '<color>';
-    initial-value: theme('colors.romance');
-    inherits: false;
+    @apply rounded-xl bg-romance border border-light-gray px-3 py-3 shadow-full transition-all text-black hover:bg-gray-200;
   }
 
-  @property --gradient-color2 {
-    syntax: '<color>';
-    initial-value: theme('colors.romance');
-    inherits: false;
+  .button__active {
+    @apply bg-romance border-rainbow-indigo text-white bg-gradient-to-b from-rainbow-indigo to-violet hover:opacity-90;
   }
-
-  .button-gradient {
-    background: linear-gradient(var(--gradient-color1), var(--gradient-color2));
-    transition:
-      --gradient-color1 0.15s ease,
-      --gradient-color2 0.15s ease;
-  }
-
-  .button-gradient:hover {
-    --gradient-color1: theme('colors.rainbow-indigo');
-    --gradient-color2: theme('colors.violet');
-  }
-
-  /* END. User for applying a transition to the bg gradient */
 }

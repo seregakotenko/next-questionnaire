@@ -1,8 +1,10 @@
 import { ConfigType } from '@/types/api/config';
 
+export type AnswerValueType = string | null | undefined;
+
 export type AnswerType = {
   questionId: string;
-  answer: string;
+  value: AnswerValueType;
 };
 
 export type ConfigState = {
@@ -13,7 +15,6 @@ export type ConfigState = {
 export type SetAnswerActionType = (questionId: string, answer: string) => void;
 
 export type ConfigActions = {
-  initializeState: (initState: ConfigType) => void;
   setAnswer: SetAnswerActionType;
 };
 

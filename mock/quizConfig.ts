@@ -10,12 +10,12 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'male',
+        value: 'male',
         title: 'Male',
         nextQuestionUrl: 'relationship-status',
       },
       {
-        name: 'female',
+        value: 'female',
         title: 'Female',
         nextQuestionUrl: 'relationship-status',
       },
@@ -30,12 +30,12 @@ export const screens: Screen[] = [
     description: 'So we can get to know you better, tell us about your relationship status.',
     answers: [
       {
-        name: 'single',
+        value: 'single',
         title: 'Single',
         nextQuestionUrl: 'single-parent',
       },
       {
-        name: 'in-relationship',
+        value: 'in-relationship',
         title: 'In a relationship',
         nextQuestionUrl: 'parent',
       },
@@ -50,12 +50,12 @@ export const screens: Screen[] = [
     description: 'Are you single parent?',
     answers: [
       {
-        name: 'yes',
+        value: 'yes',
         title: 'Yes',
         nextQuestionUrl: 'in-a-relationship-problem',
       },
       {
-        name: 'no',
+        value: 'no',
         title: 'No',
         nextQuestionUrl: 'in-a-relationship-problem',
       },
@@ -70,12 +70,12 @@ export const screens: Screen[] = [
     description: 'Are you parent?',
     answers: [
       {
-        name: 'yes',
+        value: 'yes',
         title: 'Yes',
         nextQuestionUrl: 'single-problem',
       },
       {
-        name: 'no',
+        value: 'no',
         title: 'No',
         nextQuestionUrl: 'single-problem',
       },
@@ -91,22 +91,22 @@ export const screens: Screen[] = [
       'Single {gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
     answers: [
       {
-        name: 'unhappy',
+        value: 'unhappy',
         title: 'I was unhappy with low things were going in my relationship',
         nextQuestionUrl: 'partner-introvert-or-extravert',
       },
       {
-        name: 'partially-unhappy',
+        value: 'partially-unhappy',
         title: 'I was unhappy with parts of my relationship, but some thing were working',
         nextQuestionUrl: 'partner-introvert-or-extravert',
       },
       {
-        name: 'happy',
+        value: 'happy',
         title: 'I was generally happy with my relationship',
         nextQuestionUrl: 'partner-introvert-or-extravert',
       },
       {
-        name: 'had-no-relationship',
+        value: 'had-no-relationship',
         title: "I've never been in a relationship",
         nextQuestionUrl: 'partner-introvert-or-extravert',
       },
@@ -121,17 +121,17 @@ export const screens: Screen[] = [
     description: 'Is your partner an introvert or extravert?',
     answers: [
       {
-        name: 'introvert',
+        value: 'introvert',
         title: 'Introvert',
         nextQuestionUrl: 'partner-gender',
       },
       {
-        name: 'extravert',
+        value: 'extravert',
         title: 'Extravert',
         nextQuestionUrl: 'partner-gender',
       },
       {
-        name: 'both',
+        value: 'both',
         title: 'A bit of both',
         nextQuestionUrl: 'partner-gender',
       },
@@ -146,12 +146,12 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'male',
+        value: 'male',
         title: 'Male',
         nextQuestionUrl: 'partner-priority',
       },
       {
-        name: 'female',
+        value: 'female',
         title: 'Female',
         nextQuestionUrl: 'partner-priority',
       },
@@ -167,27 +167,27 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'strongly-agree',
+        value: 'strongly-agree',
         title: 'Strongly agree',
         nextQuestionUrl: 'think-about-relationship-goals',
       },
       {
-        name: 'agree',
+        value: 'agree',
         title: 'Agree',
         nextQuestionUrl: 'think-about-relationship-goals',
       },
       {
-        name: 'neutral',
+        value: 'neutral',
         title: 'Neutral',
         nextQuestionUrl: 'think-about-relationship-goals',
       },
       {
-        name: 'disagree',
+        value: 'disagree',
         title: 'Disagree',
         nextQuestionUrl: 'think-about-relationship-goals',
       },
       {
-        name: 'strongly-agree',
+        value: 'strongly-agree',
         title: 'Strongly agree',
         nextQuestionUrl: 'think-about-relationship-goals',
       },
@@ -202,17 +202,17 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'optimistic',
+        value: 'optimistic',
         title: 'Optimistic! They are totally doable, with some guidance.',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'cautious',
+        value: 'cautious',
         title: "Cautious. I've struggled before, but I'm hopeful.",
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'anxious',
+        value: 'anxious',
         title: "I'm feeling a little anxious, honestly.",
         nextQuestionUrl: 'relationship-about-us',
       },
@@ -228,17 +228,17 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'unhappy',
+        value: 'unhappy',
         title: "I'm very unhappy with how things are going in my relationship",
         nextQuestionUrl: 'traits-tend-to-overthink',
       },
       {
-        name: 'partially-unhappy',
+        value: 'partially-unhappy',
         title: "I'm unhappy with parts of my relationship, but some things are working well",
         nextQuestionUrl: 'traits-tend-to-overthink',
       },
       {
-        name: 'happy',
+        value: 'happy',
         title: "I'm generally happy in my relationship",
         nextQuestionUrl: 'traits-tend-to-overthink',
       },
@@ -253,12 +253,12 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'yes',
+        value: 'yes',
         title: 'Yes',
         nextQuestionUrl: 'traits-most-important',
       },
       {
-        name: 'no',
+        value: 'no',
         title: 'No',
         nextQuestionUrl: 'traits-emotional-control',
       },
@@ -274,22 +274,22 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'success',
+        value: 'success',
         title: 'Success',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'romance',
+        value: 'romance',
         title: 'Romance',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'stability',
+        value: 'stability',
         title: 'Stability',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'freedom',
+        value: 'freedom',
         title: 'Freedom',
         nextQuestionUrl: 'relationship-about-us',
       },
@@ -304,22 +304,22 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'yes',
+        value: 'yes',
         title: 'Yes',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'sometimes',
+        value: 'sometimes',
         title: 'Sometimes',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'rarely',
+        value: 'rarely',
         title: 'Rarely',
         nextQuestionUrl: 'relationship-about-us',
       },
       {
-        name: 'not-at-all',
+        value: 'not-at-all',
         title: 'Not at all',
         nextQuestionUrl: 'relationship-about-us',
       },
@@ -334,63 +334,63 @@ export const screens: Screen[] = [
     type: 'text',
     answers: [
       {
-        name: 'poster',
+        value: 'poster',
         title: 'Poster or Billboard',
       },
       {
-        name: 'friends-or-family',
+        value: 'friends-or-family',
         title: 'Friend or Family',
       },
       {
-        name: 'instagram',
+        value: 'instagram',
         title: 'Instagram',
       },
       {
-        name: 'mail-or-package',
+        value: 'mail-or-package',
         title: 'Direct Mail or Package Insert',
       },
       {
-        name: 'online-tv',
+        value: 'online-tv',
         title: 'Online TV or Streaming TV',
       },
       {
-        name: 'tv',
+        value: 'tv',
         title: 'TV',
       },
       {
-        name: 'radio',
+        value: 'radio',
         title: 'Radio',
       },
       {
-        name: 'search-engine',
+        value: 'search-engine',
         title: 'Search Engine (Google, Bing, etc.)',
       },
       {
-        name: 'newspaper-or-magazine',
+        value: 'newspaper-or-magazine',
         title: 'Newspaper or Magazine',
       },
       {
-        name: 'blog-or-website',
+        value: 'blog-or-website',
         title: 'Blog Post or Website Review',
       },
       {
-        name: 'podcast',
+        value: 'podcast',
         title: 'Podcast',
       },
       {
-        name: 'influencer',
+        value: 'influencer',
         title: 'Influencer',
       },
       {
-        name: 'youtube',
+        value: 'youtube',
         title: 'Youtube',
       },
       {
-        name: 'pinterest',
+        value: 'pinterest',
         title: 'Pinterest',
       },
       {
-        name: 'other',
+        value: 'other',
         title: 'Other',
       },
     ],

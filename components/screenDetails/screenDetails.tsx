@@ -1,12 +1,12 @@
 import AnswersList from '@/components/answersList/answersList';
-import { useScreenData } from '@/hooks/configStoreHooks';
+import { useScreenDataById } from '@/hooks/configStoreHooks';
 
 type HeaderLogoType = {
   id: string;
 };
 
 export default function ScreenDetails({ id }: HeaderLogoType) {
-  const screen = useScreenData(id);
+  const screen = useScreenDataById(id);
 
   if (!screen) return null;
 
