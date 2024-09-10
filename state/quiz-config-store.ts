@@ -6,7 +6,7 @@ import { prepareCustomerState } from '@/state/utils';
 
 export const initConfigStore = (): ConfigState => {
   return {
-    config: quizConfig, // todo try to fetch it from an API ${process.env.API_URL}/quiz-config
+    config: quizConfig, // todo fetch it from an API ${process.env.API_URL}/quiz-config OR set from context
     customer: prepareCustomerState(quizConfig?.flow?.screens),
     nextQuestionId: '',
   };
