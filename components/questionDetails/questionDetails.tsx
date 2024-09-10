@@ -1,5 +1,5 @@
 import AnswersList from '@/components/answersList/answersList';
-import { useScreenDataById } from '@/hooks/configStoreHooks';
+import { useScreenDataById } from '@/state/hooks/configStoreHooks';
 import { Answer } from '@/types/api/config';
 
 type HeaderLogoType = {

@@ -1,4 +1,4 @@
-import { useScreenDataById } from '@/hooks/configStoreHooks';
+import { useScreenDataById } from '@/state/hooks/configStoreHooks';
 import { useRouter } from 'next/router';
 import { useConfigStore } from '@/state/providers/quiz-config-store-provider';
 
