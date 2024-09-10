@@ -37,7 +37,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Code quality checks are included in the project (Prettier, Eslint).
-Staged code will be checked on commit via git commit hooks but can be started at any time with:
+Staged code will be checked by the next command:
 
 ```sh
 yarn lint
