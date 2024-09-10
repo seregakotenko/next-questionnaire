@@ -2,7 +2,7 @@
 
 import { createContext, type ReactNode, useContext, useRef } from 'react';
 import { useStore } from 'zustand';
-import { createConfigStore, initConfigStore } from '@/stores/quiz-config-store';
+import { createConfigStore, initConfigStore } from '@/state/quiz-config-store';
 import { ConfigStore } from '@/types/store';
 
 export type ConfigStoreApi = ReturnType<typeof createConfigStore>;

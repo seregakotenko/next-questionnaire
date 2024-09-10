@@ -2,7 +2,7 @@ import { createStore } from 'zustand/vanilla';
 import { quizConfig } from '@/mock/quizConfig';
 import { ConfigState, ConfigStore } from '@/types/store';
 import { devtools, persist } from 'zustand/middleware';
-import { prepareCustomerState } from '@/stores/utils';
+import { prepareCustomerState } from '@/state/utils';
 
 export const initConfigStore = (): ConfigState => {
   return {
