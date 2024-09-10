@@ -24,21 +24,18 @@ export default function AnswersListItem({ answer, questionId }: AnswersListItemP
       updateCustomer({ questionId, value });
     }
 
-    let nextQuestionUrl = nextScreen?.url;
+    // nextUrl is used to move to the info banner if is existing
+    // nextScreen.url - to move to next question
+    const nextScreenUrl = nextUrl || nextScreen?.url;
 
-    // Used to move to the info banner
-    if (nextUrl) {
-      nextQuestionUrl = nextUrl;
-    }
-
-    if (!nextQuestionUrl) {
+    if (!nextScreenUrl) {
       console.log('No next question url');
       return;
     }
 
     updateNextQuestionId(nextQuestionId);
 
-    router.push(`/quiz/${nextQuestionUrl}`);
+    router.push(`/quiz/${nextScreenUrl}`);
   };
 
   return (
