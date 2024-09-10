@@ -1,8 +1,28 @@
 export type Answer = {
   value: string;
   title: string;
-  nextQuestionUrl?: string;
+  nextQuestionId?: string;
+  nextUrl?: string; // link to the INFO banner
 };
+
+export type ContentType = {
+  title?: string;
+  text?: string;
+  next?: string;
+  prev?: string;
+  answers?: Answer[];
+};
+
+export type AttributeType = {
+  next?: string;
+  prev?: string;
+  content: ContentType;
+};
+
+export enum ScreenType {
+  QUESTION = 'QUESTION',
+  INFORM = 'INFORM',
+}
 
 export type Screen = {
   id: string;
@@ -11,8 +31,8 @@ export type Screen = {
   url: string;
   description: string;
   additionalDescription?: string;
-  type: string;
-  answers: Answer[];
+  type: ScreenType;
+  attributes: AttributeType;
 };
 
 export type Flow = {

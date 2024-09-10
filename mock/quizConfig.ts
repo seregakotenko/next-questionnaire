@@ -1,399 +1,475 @@
-import { ConfigType, Screen } from '@/types/api/config';
+import { ConfigType, Screen, ScreenType } from '@/types/api/config';
+
+const { QUESTION, INFORM } = ScreenType;
 
 export const screens: Screen[] = [
   {
-    id: 'gender-id',
+    id: 'gender',
     url: 'gender',
     index: 1,
     showBackButton: false,
     description: 'Select your gender:',
-    type: 'text',
-    answers: [
-      {
-        value: 'male',
-        title: 'Male',
-        nextQuestionUrl: 'relationship-status',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'male',
+            title: 'Male',
+            nextQuestionId: 'relationshipStatus',
+          },
+          {
+            value: 'female',
+            title: 'Female',
+            nextQuestionId: 'relationshipStatus',
+          },
+        ],
       },
-      {
-        value: 'female',
-        title: 'Female',
-        nextQuestionUrl: 'relationship-status',
-      },
-    ],
+    },
   },
   {
-    id: 'relationship-status-id',
+    id: 'relationshipStatus',
     url: 'relationship-status',
     index: 2,
     showBackButton: true,
-    type: 'text',
+    type: QUESTION,
     description: 'So we can get to know you better, tell us about your relationship status.',
-    answers: [
-      {
-        value: 'single',
-        title: 'Single',
-        nextQuestionUrl: 'single-parent',
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'single',
+            title: 'Single',
+            nextQuestionId: 'singleParent',
+          },
+          {
+            value: 'in-relationship',
+            title: 'In a relationship',
+            nextQuestionId: 'parent',
+          },
+        ],
       },
-      {
-        value: 'in-relationship',
-        title: 'In a relationship',
-        nextQuestionUrl: 'parent',
-      },
-    ],
+    },
   },
   {
-    id: 'single-parent-id',
+    id: 'singleParent',
     url: 'single-parent',
     index: 3,
     showBackButton: true,
-    type: 'text',
+    type: QUESTION,
     description: 'Are you single parent?',
-    answers: [
-      {
-        value: 'yes',
-        title: 'Yes',
-        nextQuestionUrl: 'in-a-relationship-problem',
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'yes',
+            title: 'Yes',
+            nextQuestionId: 'relationshipProblem',
+          },
+          {
+            value: 'no',
+            title: 'No',
+            nextQuestionId: 'relationshipProblem',
+          },
+        ],
       },
-      {
-        value: 'no',
-        title: 'No',
-        nextQuestionUrl: 'in-a-relationship-problem',
-      },
-    ],
+    },
   },
   {
-    id: 'parent-id',
+    id: 'parent',
     url: 'parent',
     index: 4,
     showBackButton: true,
-    type: 'text',
+    type: QUESTION,
     description: 'Are you parent?',
-    answers: [
-      {
-        value: 'yes',
-        title: 'Yes',
-        nextQuestionUrl: 'single-problem',
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'yes',
+            title: 'Yes',
+            nextQuestionId: 'singleProblem',
+          },
+          {
+            value: 'no',
+            title: 'No',
+            nextQuestionId: 'singleProblem',
+          },
+        ],
       },
-      {
-        value: 'no',
-        title: 'No',
-        nextQuestionUrl: 'single-problem',
-      },
-    ],
+    },
   },
   {
-    id: 'single-problem-id',
+    id: 'singleProblem',
     url: 'single-problem',
     index: 5,
     showBackButton: true,
-    type: 'text',
+    type: QUESTION,
     description:
       'Single {gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you fell in your last relationship?',
-    answers: [
-      {
-        value: 'unhappy',
-        title: 'I was unhappy with low things were going in my relationship',
-        nextQuestionUrl: 'partner-introvert-or-extravert',
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'unhappy',
+            title: 'I was unhappy with low things were going in my relationship',
+            nextQuestionId: 'partner-introvert-or-extravert-id',
+          },
+          {
+            value: 'partially-unhappy',
+            title: 'I was unhappy with parts of my relationship, but some thing were working',
+            nextQuestionId: 'partnerIntrovertOrExtravert',
+          },
+          {
+            value: 'happy',
+            title: 'I was generally happy with my relationship',
+            nextQuestionId: 'partnerIntrovertOrExtravert',
+          },
+          {
+            value: 'had-no-relationship',
+            title: "I've never been in a relationship",
+            nextQuestionId: 'partnerIntrovertOrExtravert',
+          },
+        ],
       },
-      {
-        value: 'partially-unhappy',
-        title: 'I was unhappy with parts of my relationship, but some thing were working',
-        nextQuestionUrl: 'partner-introvert-or-extravert',
-      },
-      {
-        value: 'happy',
-        title: 'I was generally happy with my relationship',
-        nextQuestionUrl: 'partner-introvert-or-extravert',
-      },
-      {
-        value: 'had-no-relationship',
-        title: "I've never been in a relationship",
-        nextQuestionUrl: 'partner-introvert-or-extravert',
-      },
-    ],
+    },
   },
   {
-    id: 'partner-introvert-or-extravert-id',
+    id: 'partnerIntrovertOrExtravert',
     url: 'partner-introvert-or-extravert',
     index: 6,
     showBackButton: true,
-    type: 'text',
+    type: QUESTION,
     description: 'Is your partner an introvert or extravert?',
-    answers: [
-      {
-        value: 'introvert',
-        title: 'Introvert',
-        nextQuestionUrl: 'partner-gender',
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'introvert',
+            title: 'Introvert',
+            nextQuestionId: 'partnerGender',
+          },
+          {
+            value: 'extravert',
+            title: 'Extravert',
+            nextQuestionId: 'partnerGender',
+          },
+          {
+            value: 'both',
+            title: 'A bit of both',
+            nextQuestionId: 'partnerGender',
+          },
+        ],
       },
-      {
-        value: 'extravert',
-        title: 'Extravert',
-        nextQuestionUrl: 'partner-gender',
-      },
-      {
-        value: 'both',
-        title: 'A bit of both',
-        nextQuestionUrl: 'partner-gender',
-      },
-    ],
+    },
   },
   {
-    id: 'partner-gender-id',
+    id: 'partnerGender',
     url: 'partner-gender',
     index: 7,
     showBackButton: true,
     description: "Select your partner's gender:",
-    type: 'text',
-    answers: [
-      {
-        value: 'male',
-        title: 'Male',
-        nextQuestionUrl: 'partner-priority',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'male',
+            title: 'Male',
+            nextQuestionId: 'partnerPriority',
+          },
+          {
+            value: 'female',
+            title: 'Female',
+            nextQuestionId: 'partnerPriority',
+          },
+        ],
       },
-      {
-        value: 'female',
-        title: 'Female',
-        nextQuestionUrl: 'partner-priority',
-      },
-    ],
+    },
   },
   {
-    id: 'partner-priority-id',
+    id: 'partnerPriority',
     url: 'partner-priority',
     index: 8,
     showBackButton: true,
     description: 'Do you agree with the statement below?',
     additionalDescription: '"My partner and I make sex a priority in our relationship"',
-    type: 'text',
-    answers: [
-      {
-        value: 'strongly-agree',
-        title: 'Strongly agree',
-        nextQuestionUrl: 'think-about-relationship-goals',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'strongly-agree',
+            title: 'Strongly agree',
+            nextQuestionId: 'relationshipGoal',
+          },
+          {
+            value: 'agree',
+            title: 'Agree',
+            nextQuestionId: 'relationshipGoal',
+          },
+          {
+            value: 'neutral',
+            title: 'Neutral',
+            nextQuestionId: 'relationshipGoal',
+          },
+          {
+            value: 'disagree',
+            title: 'Disagree',
+            nextQuestionId: 'relationshipGoal',
+          },
+          {
+            value: 'strongly-agree',
+            title: 'Strongly agree',
+            nextQuestionId: 'relationshipGoal',
+          },
+        ],
       },
-      {
-        value: 'agree',
-        title: 'Agree',
-        nextQuestionUrl: 'think-about-relationship-goals',
-      },
-      {
-        value: 'neutral',
-        title: 'Neutral',
-        nextQuestionUrl: 'think-about-relationship-goals',
-      },
-      {
-        value: 'disagree',
-        title: 'Disagree',
-        nextQuestionUrl: 'think-about-relationship-goals',
-      },
-      {
-        value: 'strongly-agree',
-        title: 'Strongly agree',
-        nextQuestionUrl: 'think-about-relationship-goals',
-      },
-    ],
+    },
   },
   {
-    id: 'think-about-relationship-goals-id',
+    id: 'relationshipGoal',
     url: 'think-about-relationship-goals',
     index: 9,
     showBackButton: true,
     description: 'When you think about your relationship goals, you feel...?',
-    type: 'text',
-    answers: [
-      {
-        value: 'optimistic',
-        title: 'Optimistic! They are totally doable, with some guidance.',
-        nextQuestionUrl: 'relationship-about-us',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'optimistic',
+            title: 'Optimistic! They are totally doable, with some guidance.',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'cautious',
+            title: "Cautious. I've struggled before, but I'm hopeful.",
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'anxious',
+            title: "I'm feeling a little anxious, honestly.",
+            nextQuestionId: 'relationshipAboutUs',
+          },
+        ],
       },
-      {
-        value: 'cautious',
-        title: "Cautious. I've struggled before, but I'm hopeful.",
-        nextQuestionUrl: 'relationship-about-us',
-      },
-      {
-        value: 'anxious',
-        title: "I'm feeling a little anxious, honestly.",
-        nextQuestionUrl: 'relationship-about-us',
-      },
-    ],
+    },
   },
   {
-    id: 'in-a-relationship-problem-id',
-    url: 'in-a-relationship-problem',
+    id: 'relationshipProblem',
+    url: 'relationship-problem',
     index: 10,
     showBackButton: true,
     description:
       '{Gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?',
-    type: 'text',
-    answers: [
-      {
-        value: 'unhappy',
-        title: "I'm very unhappy with how things are going in my relationship",
-        nextQuestionUrl: 'traits-tend-to-overthink',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'unhappy',
+            title: "I'm very unhappy with how things are going in my relationship",
+            nextQuestionId: 'traitsTendOverthink',
+          },
+          {
+            value: 'partially-unhappy',
+            title: "I'm unhappy with parts of my relationship, but some things are working well",
+            nextQuestionId: 'traitsTendOverthink',
+          },
+          {
+            value: 'happy',
+            title: "I'm generally happy in my relationship",
+            nextQuestionId: 'traitsTendOverthink',
+          },
+        ],
       },
-      {
-        value: 'partially-unhappy',
-        title: "I'm unhappy with parts of my relationship, but some things are working well",
-        nextQuestionUrl: 'traits-tend-to-overthink',
-      },
-      {
-        value: 'happy',
-        title: "I'm generally happy in my relationship",
-        nextQuestionUrl: 'traits-tend-to-overthink',
-      },
-    ],
+    },
   },
   {
-    id: 'traits-tend-to-overthink-id',
+    id: 'traitsTendOverthink',
     url: 'traits-tend-to-overthink',
     index: 11,
     showBackButton: true,
     description: 'Do you tend to overthink?',
-    type: 'text',
-    answers: [
-      {
-        value: 'yes',
-        title: 'Yes',
-        nextQuestionUrl: 'traits-most-important',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'yes',
+            title: 'Yes',
+            nextQuestionId: 'traitsMostImportant',
+            nextUrl: 'how-does-it-work',
+          },
+          {
+            value: 'no',
+            title: 'No',
+            nextQuestionId: 'emotionalControl',
+            nextUrl: 'how-does-it-work',
+          },
+        ],
       },
-      {
-        value: 'no',
-        title: 'No',
-        nextQuestionUrl: 'traits-emotional-control',
-      },
-    ],
+    },
   },
-  // TODO There should be "how-does-it-work-id" section
   {
-    id: 'traits-most-important-id',
+    id: 'howDoesItWork',
+    url: 'how-does-it-work',
+    index: 15,
+    showBackButton: true,
+    description: 'So how does it work?',
+    additionalDescription:
+      "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with Al to tailor-make your astrological insights, based on your attributes. We're going to change your relationship with astrology.",
+    type: INFORM,
+    attributes: {
+      content: {
+        next: 'Next',
+        title: 'So how does it work?',
+        text: "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with Al to tailor-make your astrological insights, based on your attributes. We're going to change your relationship with astrology.",
+      },
+    },
+  },
+  {
+    id: 'traitsMostImportant',
     url: 'traits-most-important',
     index: 12,
     showBackButton: true,
     description: 'What is most important to you?',
-    type: 'text',
-    answers: [
-      {
-        value: 'success',
-        title: 'Success',
-        nextQuestionUrl: 'relationship-about-us',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'success',
+            title: 'Success',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'romance',
+            title: 'Romance',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'stability',
+            title: 'Stability',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'freedom',
+            title: 'Freedom',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+        ],
       },
-      {
-        value: 'romance',
-        title: 'Romance',
-        nextQuestionUrl: 'relationship-about-us',
-      },
-      {
-        value: 'stability',
-        title: 'Stability',
-        nextQuestionUrl: 'relationship-about-us',
-      },
-      {
-        value: 'freedom',
-        title: 'Freedom',
-        nextQuestionUrl: 'relationship-about-us',
-      },
-    ],
+    },
   },
   {
-    id: 'traits-emotional-control-id',
+    id: 'emotionalControl',
     url: 'traits-emotional-control',
     index: 13,
     showBackButton: true,
     description: 'Is emotional control tricky for you?',
-    type: 'text',
-    answers: [
-      {
-        value: 'yes',
-        title: 'Yes',
-        nextQuestionUrl: 'relationship-about-us',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'yes',
+            title: 'Yes',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'sometimes',
+            title: 'Sometimes',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'rarely',
+            title: 'Rarely',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+          {
+            value: 'not-at-all',
+            title: 'Not at all',
+            nextQuestionId: 'relationshipAboutUs',
+          },
+        ],
       },
-      {
-        value: 'sometimes',
-        title: 'Sometimes',
-        nextQuestionUrl: 'relationship-about-us',
-      },
-      {
-        value: 'rarely',
-        title: 'Rarely',
-        nextQuestionUrl: 'relationship-about-us',
-      },
-      {
-        value: 'not-at-all',
-        title: 'Not at all',
-        nextQuestionUrl: 'relationship-about-us',
-      },
-    ],
+    },
   },
   {
-    id: 'relationship-about-us-id',
+    id: 'relationshipAboutUs',
     url: 'relationship-about-us',
     index: 14,
     showBackButton: true,
     description: 'Where did you hear about us?',
-    type: 'text',
-    answers: [
-      {
-        value: 'poster',
-        title: 'Poster or Billboard',
+    type: QUESTION,
+    attributes: {
+      content: {
+        answers: [
+          {
+            value: 'poster',
+            title: 'Poster or Billboard',
+          },
+          {
+            value: 'friends-or-family',
+            title: 'Friend or Family',
+          },
+          {
+            value: 'instagram',
+            title: 'Instagram',
+          },
+          {
+            value: 'mail-or-package',
+            title: 'Direct Mail or Package Insert',
+          },
+          {
+            value: 'online-tv',
+            title: 'Online TV or Streaming TV',
+          },
+          {
+            value: 'tv',
+            title: 'TV',
+          },
+          {
+            value: 'radio',
+            title: 'Radio',
+          },
+          {
+            value: 'search-engine',
+            title: 'Search Engine (Google, Bing, etc.)',
+          },
+          {
+            value: 'newspaper-or-magazine',
+            title: 'Newspaper or Magazine',
+          },
+          {
+            value: 'blog-or-website',
+            title: 'Blog Post or Website Review',
+          },
+          {
+            value: 'podcast',
+            title: 'Podcast',
+          },
+          {
+            value: 'influencer',
+            title: 'Influencer',
+          },
+          {
+            value: 'youtube',
+            title: 'Youtube',
+          },
+          {
+            value: 'pinterest',
+            title: 'Pinterest',
+          },
+          {
+            value: 'other',
+            title: 'Other',
+          },
+        ],
       },
-      {
-        value: 'friends-or-family',
-        title: 'Friend or Family',
-      },
-      {
-        value: 'instagram',
-        title: 'Instagram',
-      },
-      {
-        value: 'mail-or-package',
-        title: 'Direct Mail or Package Insert',
-      },
-      {
-        value: 'online-tv',
-        title: 'Online TV or Streaming TV',
-      },
-      {
-        value: 'tv',
-        title: 'TV',
-      },
-      {
-        value: 'radio',
-        title: 'Radio',
-      },
-      {
-        value: 'search-engine',
-        title: 'Search Engine (Google, Bing, etc.)',
-      },
-      {
-        value: 'newspaper-or-magazine',
-        title: 'Newspaper or Magazine',
-      },
-      {
-        value: 'blog-or-website',
-        title: 'Blog Post or Website Review',
-      },
-      {
-        value: 'podcast',
-        title: 'Podcast',
-      },
-      {
-        value: 'influencer',
-        title: 'Influencer',
-      },
-      {
-        value: 'youtube',
-        title: 'Youtube',
-      },
-      {
-        value: 'pinterest',
-        title: 'Pinterest',
-      },
-      {
-        value: 'other',
-        title: 'Other',
-      },
-    ],
+    },
   },
 ];
 

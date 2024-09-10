@@ -4,14 +4,23 @@
 
 @layer base {
   body {
-    @apply bg-white-smoke px-2;
+    @apply bg-white-smoke;
   }
 
-  .button {
-    @apply rounded-xl bg-romance border border-light-gray px-3 py-3 shadow-full transition-all text-black hover:bg-gray-200;
+  body,
+  html {
+    @apply h-full;
   }
 
-  .button__active {
-    @apply bg-romance border-rainbow-indigo text-white bg-gradient-to-b from-rainbow-indigo to-violet hover:opacity-90;
+  #__next {
+    @apply h-full;
+  }
+
+  .button-default {
+    @apply rounded-xl bg-romance border border-light-gray px-3 py-3 text-black shadow-full transition-all hover:bg-gray-200;
+  }
+
+  .button-primary {
+    @apply rounded-xl bg-romance border border-rainbow-indigo px-3 py-3 text-white shadow-full transition-all bg-gradient-to-b from-rainbow-indigo to-violet hover:opacity-95;
   }
 }

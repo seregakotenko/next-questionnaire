@@ -1,21 +1,24 @@
 import { ConfigType } from '@/types/api/config';
 
 export type AnswerValueType = string | null | undefined;
-
-export type AnswerType = {
+export type AnswerRecordsType = Record<string, string>;
+export type AnswerActionDataType = {
   questionId: string;
-  value: AnswerValueType;
+  value: string;
 };
 
 export type ConfigState = {
   config: ConfigType | null;
-  answers: AnswerType[];
+  customer: AnswerRecordsType;
+  nextQuestionId: string;
 };
 
-export type SetAnswerActionType = (questionId: string, answer: string) => void;
+export type UpdateCustomerActionType = (answer: AnswerActionDataType) => void;
+export type UpdateNextQuestionIDType = (nextQuestionId: string) => void;
 
 export type ConfigActions = {
-  setAnswer: SetAnswerActionType;
+  updateCustomer: UpdateCustomerActionType;
+  updateNextQuestionId: UpdateNextQuestionIDType;
 };
 
 export type ConfigStore = ConfigState & ConfigActions;

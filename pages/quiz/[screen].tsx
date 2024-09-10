@@ -1,9 +1,9 @@
-import { Screen as ScreenType } from '@/types/api/config';
-import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next';
-// import { ScreenResponseData, ScreensResponseData } from '@/types/api';
-import ScreenDetails from '@/components/screenDetails/screenDetails';
-import ScreenLayout from '@/components/screenLayout';
+import { Screen as ScreenDataType, ScreenType } from '@/types/api/config';
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next'; // import { ScreenResponseData, ScreensResponseData } from '@/types/api';
+import QuestionDetails from '@/components/questionDetails/questionDetails';
 import { quizConfig } from '@/mock/quizConfig';
+import InformDetails from '@/components/informDetails/informDetails';
+import QuizLayout from '@/components/quizLayout/quizLayout';
 
 export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   // Call an API endpoint to get posts
@@ -17,7 +17,7 @@ export const getStaticPaths = (async (): Promise<GetStaticPathsResult> => {
   const screens = quizConfig.flow.screens;
 
   // Get the paths we want to pre-render based on screens
-  const paths = screens?.map((screen: ScreenType) => {
+  const paths = screens?.map((screen: ScreenDataType) => {
     return {
       params: {
         screen: screen.url,
@@ -53,15 +53,18 @@ export const getStaticProps = (async ({ params }) => {
 }) satisfies GetStaticProps;
 
 type PageProps = {
-  screen: ScreenType;
+  screen: ScreenDataType;
 };
 
 export default function Screen({ screen }: PageProps) {
-  const { id, showBackButton } = screen;
+  const { id, showBackButton, type } = screen;
+  const containerClasses =
+    type === ScreenType.INFORM ? 'bg-gradient-to-b  from-rainbow-indigo to-violet text-white' : '';
 
   return (
-    <ScreenLayout showBackButton={showBackButton}>
-      <ScreenDetails id={id} />
-    </ScreenLayout>
+    <QuizLayout showBackButton={showBackButton} containerClassNames={containerClasses}>
+      {type === ScreenType.QUESTION && <QuestionDetails id={id} />}
+      {type === ScreenType.INFORM && <InformDetails id={id} />}
+    </QuizLayout>
   );
 }
