@@ -1,4 +1,4 @@
-import { useConfigStore } from '@/providers/quiz-config-store-provider';
+import { useConfigStore } from '@/state/providers/quiz-config-store-provider';
 import { Screen } from '@/types/api/config';
 import { AnswerValueType } from '@/types/store';
 import { useShallow } from 'zustand/react/shallow';

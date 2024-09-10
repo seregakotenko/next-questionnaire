@@ -2,7 +2,7 @@ import { MouseEventHandler } from 'react';
 import { useRouter } from 'next/router';
 import { Answer } from '@/types/api/config';
 import { useAnswerValueByScreenId, useScreenDataById } from '@/hooks/configStoreHooks';
-import { useConfigStore } from '@/providers/quiz-config-store-provider';
+import { useConfigStore } from '@/state/providers/quiz-config-store-provider';
 import { useShallow } from 'zustand/react/shallow';
 
 type AnswersListItemProps = {
