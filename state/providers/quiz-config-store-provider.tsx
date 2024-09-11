@@ -4,6 +4,7 @@ import { createContext, type ReactNode, useContext, useRef } from 'react';
 import { useStore } from 'zustand';
 import { createConfigStore, initConfigStore } from '@/state/quiz-config-store';
 import { ConfigStore } from '@/types/store';
+import { ConfigType } from '@/types/api/config';
 
 export type ConfigStoreApi = ReturnType<typeof createConfigStore>;
 
@@ -11,12 +12,13 @@ export const ConfigStoreContext = createContext<ConfigStoreApi | undefined>(unde
 
 export interface ConfigStoreProviderProps {
   children: ReactNode;
+  quizConfig: ConfigType;
 }
 
-export const ConfigStoreProvider = ({ children }: ConfigStoreProviderProps) => {
+export const ConfigStoreProvider = ({ children, quizConfig }: ConfigStoreProviderProps) => {
   const storeRef = useRef<ConfigStoreApi>();
   if (!storeRef.current) {
-    storeRef.current = createConfigStore(initConfigStore());
+    storeRef.current = createConfigStore(initConfigStore(quizConfig));
   }
 
   return (

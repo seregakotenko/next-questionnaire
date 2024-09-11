@@ -1,12 +1,12 @@
 import { createStore } from 'zustand/vanilla';
-import { quizConfig } from '@/mock/quizConfig';
 import { ConfigState, ConfigStore } from '@/types/store';
 import { devtools, persist } from 'zustand/middleware';
 import { prepareCustomerState } from '@/state/utils';
+import { ConfigType } from '@/types/api/config';
 
-export const initConfigStore = (): ConfigState => {
+export const initConfigStore = (quizConfig: ConfigType): ConfigState => {
   return {
-    config: quizConfig, // todo fetch it from an API ${process.env.API_URL}/quiz-config OR set from context
+    config: quizConfig,
     customer: prepareCustomerState(quizConfig?.flow?.screens),
     nextQuestionId: '',
   };
